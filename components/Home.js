@@ -39,6 +39,7 @@ function Home() {
     fetch('https://my-moviz-front-chi.vercel.app/movies')
       .then(response => response.json())
       .then(data => {
+        console.log(data);
         const formattedData = data.movies?.map(movie => {
           const poster = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
           let overview = movie.overview;

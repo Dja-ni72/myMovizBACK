@@ -39,7 +39,7 @@ function Home() {
     fetch('https://my-moviz-front-chi.vercel.app/movies')
       .then(response => response.json())
       .then(data => {
-        const formattedData = data.movies.map(movie => {
+        const formattedData = data.movies?.map(movie => {
           const poster = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
           let overview = movie.overview;
           if (overview.length > 250) {
@@ -52,7 +52,7 @@ function Home() {
       });
   }, []);
 
-  const movies = moviesData.map((data, i) => {
+  const movies = moviesData?.map((data, i) => {
     const isLiked = likedMovies.some(movie => movie === data.title);
     return (
       <Movie
